@@ -3,12 +3,15 @@ header {
     display: flex;
     padding-inline:16px;
     padding-block: 8px;
-    background-color: #333;
-    color: #fff;
+    background-color: #be5518;
+    color: #e03d3d;
     align-items: center;
     justify-content: space-between;
 }
 
 main, div, p {
     padding-inline: 16px;
+}
+nav a {
+  padding: 0 10px; /* Adds 10px of space to the left and right */
 }
