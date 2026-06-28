@@ -9,6 +9,6 @@ header {
     justify-content: space-between;
 }
 
-main {
+main, div, p {
     padding-inline: 16px;
 }
