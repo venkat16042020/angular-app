@@ -8,7 +8,7 @@ import { Greeting } from '../components/greeting/greeting';
   styleUrl: './home.css',
 })
 export class Home {
-keyUpHandler() {
-  console.log('Key up event triggered');
+keyUpHandler(event: KeyboardEvent) {
+  console.log('Key up event triggered ' + `Key pressed: ${event.key}`);
 }
 }
