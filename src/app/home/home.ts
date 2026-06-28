@@ -1,9 +1,14 @@
 import { Component } from '@angular/core';
+import { Greeting } from '../components/greeting/greeting';
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [Greeting],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
-export class Home {}
+export class Home {
+keyUpHandler() {
+  console.log('Key up event triggered');
+}
+}
