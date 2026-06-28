@@ -1,3 +1,10 @@
 <p>home works!</p>
-<input type="text" (keyup)="keyUpHandler($event)" placeholder="Enter your message" />
+<p>Current Count: {{ currentCount() }}</p>
+<div>
+    <button (click)="Increment()">Increment</button>    
+    <button (click)="Decrement()">Decrement</button>
+    <button (click)="Reset()">Reset</button>
+</div>
+<input type="text" placeholder="Enter your message" (keyup)="keyUpHandler($event)" />
+
 <app-greeting [message]="'Hello, World'"/>
