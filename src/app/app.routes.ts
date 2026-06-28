@@ -54,5 +54,23 @@ export const routes: Routes = [{
     loadComponent: () => 
         {return import('./components/contact/contact').then((m) => m.Contact);
         }
+},
+{
+    path: 'crops/fruits/promogranate',
+    loadComponent: () => 
+        {return import('./components/crops/fruites/promogranate/promogranate').then((m) => m.Promogranate);
+        }
+},
+{
+    path: 'crops/fruits/banana',
+    loadComponent: () => 
+        {return import('./components/crops/fruites/banana/banana').then((m) => m.Banana);
+        }
+},
+{
+    path: 'crops/fruits/mango',
+    loadComponent: () => 
+        {return import('./components/crops/fruites/mango/mango').then((m) => m.Mango);
+        }
 }
 ];
