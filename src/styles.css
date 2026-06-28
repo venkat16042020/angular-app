@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+header {
+    display: flex;
+    padding-inline:16px;
+    padding-block: 8px;
+    background-color: #333;
+    color: #fff;
+    align-items: center;
+    justify-content: space-between;
+}
+
+main {
+    padding-inline: 16px;
+}
