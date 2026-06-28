@@ -10,5 +10,4 @@ import { Header } from './components/header/header';
 })
 export class App {
   protected readonly title = signal('Welcome to Apps for Good Life');
-  protected readonly title1 = 'Good start for your life';
 }
