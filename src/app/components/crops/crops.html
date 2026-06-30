@@ -1,6 +1,6 @@
 <p>crops works!</p>
 @for (crop of cropServiceData; track crop.id) {
-      <li><a [routerLink]="['/crops/fruits/{{ crop.name }}']">{{ crop.name }}</a></li>
+<li><a [routerLink]="['/crops', 'fruits', crop.name]">{{ crop.name }}</a></li>
 
   <!-- <p>Crop name: {{ crop.name }}</p> -->
 } @empty {
@@ -8,8 +8,8 @@
 }
 <nav>
   <ul>
-    <li><a [routerLink]="['/crops/fruits/promogranate']">Pomegranate</a></li>
-    <li><a [routerLink]="['/crops/fruits/banana']">Banana</a></li>
-    <li><a [routerLink]="['/crops/fruits/mango']">Mango</a></li>
+    <li><a [routerLink]="['/crops', 'fruits', 'pomegranate']">Pomegranate</a></li>
+    <li><a [routerLink]="['/crops', 'fruits', 'banana']">Banana</a></li>
+    <li><a [routerLink]="['/crops', 'fruits', 'mango']">Mango</a></li>
   </ul>
 </nav>
