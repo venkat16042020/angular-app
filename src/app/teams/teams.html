@@ -1,0 +1,15 @@
+<p>teams works!</p>
+<p>Total items: {{ teamsServiceData.length }}</p>
+
+<ul>
+  @for (team of teamsServiceData; track team.id) {
+    <li>
+      <p>Team Member Details:</p>
+      <span>{{ team.first_name }} {{ team.last_name }}</span>
+    </li>
+  } @empty {
+    <li>No team data available.</li>
+  }
+</ul>
+
+<p>Team name</p>
