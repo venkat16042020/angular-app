@@ -29,7 +29,7 @@ export class TeamsService {
         'Content-Type': 'application/json'
       }
     }).pipe(
-      map(response => response.data)
+      map(response => response.data.at(0) ? response.data : [])
     );
   }
 }
