@@ -3,6 +3,7 @@ import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-banana',
+  standalone: true,
   imports: [MatButtonModule],
   templateUrl: './banana.html',
   styleUrl: './banana.css',

@@ -22,6 +22,12 @@ export const routes: Routes = [
         }
 },
 {
+    path: 'cattle/buffello',
+    loadComponent: () => 
+        {return import('./components/cattle/buffello/buffello').then((m) => m.Buffello);
+        }
+},
+{
     path: 'drip',
     loadComponent: () => 
         {return import('./components/drip/drip').then((m) => m.Drip);

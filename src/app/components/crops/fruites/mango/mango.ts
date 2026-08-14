@@ -3,6 +3,7 @@ import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-mango',
+  standalone: true,
   imports: [MatButtonModule],
   templateUrl: './mango.html',
   styleUrl: './mango.css',

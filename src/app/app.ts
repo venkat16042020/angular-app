@@ -1,15 +1,14 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Home } from './home/home';
 import { Header } from './components/header/header';
-import { Greeting } from './components/greeting/greeting';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [RouterOutlet, MatButtonModule, Header],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css']
 })
 export class App {
   protected readonly title = signal('Welcome to Apps for Good Life');

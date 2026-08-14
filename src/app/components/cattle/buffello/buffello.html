@@ -1,0 +1,9 @@
+<section class="buffello-grid">
+  @for (card of buffelloCards; track card.id) {
+    <article class="buffello-card">
+      <h2>{{ card.title }}</h2>
+      <p>{{ card.description }}</p>
+      <button mat-raised-button color="primary">View Details</button>
+    </article>
+  }
+</section>
