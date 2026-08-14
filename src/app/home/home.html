@@ -1,8 +1,9 @@
 <p>Current Count: {{ currentCount() }}</p>
-<div>
-    <button (click)="Increment()">Increment</button>    
+<div class="home-actions">
+    <button (click)="Increment()">Increment</button>
     <button (click)="Decrement()">Decrement</button>
     <button (click)="Reset()">Reset</button>
+    <button mat-raised-button color="primary" (click)="Increment()">Material Button</button>
 </div>
 <input type="text" placeholder="Enter your message" (keyup)="keyUpHandler($event)" />
 

@@ -3,9 +3,11 @@ import { RouterOutlet } from '@angular/router';
 import { Home } from './home/home';
 import { Header } from './components/header/header';
 import { Greeting } from './components/greeting/greeting';
+import { MatButtonModule } from '@angular/material/button';
+
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Header],
+  imports: [RouterOutlet, MatButtonModule, Header],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

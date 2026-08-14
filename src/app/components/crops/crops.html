@@ -5,7 +5,11 @@
 <h1>Crops</h1>
 
 @for (crop of cropServiceData; track crop.id) {
-<li><a [routerLink]="['/crops', 'fruits', crop.name]">{{ crop.name }}</a></li>
+<li>
+  <a [routerLink]="['/crops', 'fruits', crop.name.toLowerCase().replace(/s$/, '')]">
+    {{ crop.name }}
+  </a>
+</li>
 
   <!-- <p>Crop name: {{ crop.name }}</p> -->
 } @empty {

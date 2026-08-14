@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-banana',
-  imports: [],
+  imports: [MatButtonModule],
   templateUrl: './banana.html',
   styleUrl: './banana.css',
 })

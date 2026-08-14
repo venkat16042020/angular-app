@@ -1,9 +1,10 @@
 import { Component, signal } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import { Greeting } from '../components/greeting/greeting';
 
 @Component({
   selector: 'app-home',
-  imports: [Greeting],
+  imports: [Greeting, MatButtonModule],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })

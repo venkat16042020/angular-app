@@ -57,6 +57,12 @@ export const routes: Routes = [
         }
 },
 {
+    path: 'crops/fruits/pomegranate',
+    loadComponent: () => 
+        {return import('./components/crops/fruites/promogranate/promogranate').then((m) => m.Promogranate);
+        }
+},
+{
     path: 'crops/fruits/promogranate',
     loadComponent: () => 
         {return import('./components/crops/fruites/promogranate/promogranate').then((m) => m.Promogranate);

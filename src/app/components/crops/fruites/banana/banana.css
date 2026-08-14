@@ -1,0 +1,18 @@
+.banana-card {
+  max-width: 420px;
+  margin: 24px auto;
+  padding: 24px;
+  border-radius: 12px;
+  background: #fff8e1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  text-align: center;
+}
+
+.banana-card h2 {
+  margin-top: 0;
+  color: #3f51b5;
+}
+
+.banana-card p {
+  margin-bottom: 20px;
+}
