@@ -1,18 +1,42 @@
+.banana-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  gap: 20px;
+  margin: 24px 0 0;
+  align-items: stretch;
+  justify-items: start;
+  width: 100%;
+}
+
 .banana-card {
-  max-width: 420px;
-  margin: 24px auto;
-  padding: 24px;
+  width: 100%;
+  max-width: 280px;
+  padding: 24px 20px;
   border-radius: 12px;
   background: #fff8e1;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-  text-align: center;
+  text-align: left;
 }
 
 .banana-card h2 {
   margin-top: 0;
+  margin-bottom: 12px;
   color: #3f51b5;
 }
 
 .banana-card p {
-  margin-bottom: 20px;
+  margin: 0 0 20px;
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .banana-grid {
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .banana-grid {
+    grid-template-columns: 1fr;
+  }
 }

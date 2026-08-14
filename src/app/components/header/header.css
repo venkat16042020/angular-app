@@ -1,9 +1,33 @@
-h1{
-    font-size: 2rem;
-    color: #08ee08;
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: #b85b1f;
+  padding: 12px 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-a{
-    text-decoration: none;
-    color: #08ee08;
+h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #08ee08;
+}
+
+.header-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
+
+.header-nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.header-nav a:hover {
+  background: rgba(255, 255, 255, 0.12);
 }

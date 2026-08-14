@@ -1,1 +1,9 @@
-<p>mango works!</p>
+<section class="mango-grid">
+  @for (card of mangoCards; track card.id) {
+    <article class="mango-card">
+      <h2>{{ card.title }}</h2>
+      <p>{{ card.description }}</p>
+      <button mat-raised-button color="primary">View Details</button>
+    </article>
+  }
+</section>

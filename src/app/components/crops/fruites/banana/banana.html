@@ -1,5 +1,9 @@
-<section class="banana-card">
-  <h2>Banana</h2>
-  <p>Banana works perfectly with Angular Material.</p>
-  <button mat-raised-button color="primary">Order Now</button>
+<section class="banana-grid">
+  @for (card of bananaCards; track card.id) {
+    <article class="banana-card">
+      <h2>{{ card.title }}</h2>
+      <p>{{ card.description }}</p>
+      <button mat-raised-button color="primary">Order Now</button>
+    </article>
+  }
 </section>
