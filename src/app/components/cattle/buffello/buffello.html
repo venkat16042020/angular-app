@@ -24,6 +24,18 @@
       <input id="quantity" type="number" min="1" [(ngModel)]="quantity" />
     </div>
 
+    <div class="customer-form">
+      <div class="form-row compact-form">
+        <label for="customerName">Customer name</label>
+        <input id="customerName" type="text" [(ngModel)]="customerName" placeholder="Enter name" />
+      </div>
+
+      <div class="form-row compact-form">
+        <label for="customerPhone">Phone number</label>
+        <input id="customerPhone" type="tel" [(ngModel)]="customerPhone" placeholder="Enter phone number" />
+      </div>
+    </div>
+
     <div class="price-box">
       <p>Selected: {{ selectedProduct.name }}</p>
       <p>Item total: ₹{{ currentItemTotal }}</p>
@@ -47,6 +59,62 @@
         <p class="grand-total">Grand Total: ₹{{ cartTotal }}</p>
       }
     </div>
+
+    @if (showCheckout) {
+      <div class="checkout-panel">
+        <h3>PhonePe QR Payment</h3>
+        <div class="qr-box" aria-label="PhonePe QR code">
+          <div class="qr-pattern">
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+        <p class="qr-text">{{ qrCodeText }}</p>
+        <div class="checkout-actions">
+          <button mat-raised-button color="primary" (click)="confirmPhonePay()">I have paid via PhonePe</button>
+        </div>
+      </div>
+    }
+
+    @if (orderHistory.length > 0) {
+      <div class="history-box">
+        <h3>Order History</h3>
+        @for (order of orderHistory; track order.id) {
+          <div class="history-item">
+            <strong>{{ order.id }}</strong>
+            <span>{{ order.status }} • {{ order.paymentMethod }}</span>
+            <span>₹{{ order.total }}</span>
+            <small>{{ order.placedAt | date: 'medium' }}</small>
+          </div>
+        }
+      </div>
+    }
+
+    @if (latestInvoice) {
+      <div class="invoice-box">
+        <h3>Invoice</h3>
+        <p><strong>Order ID:</strong> {{ latestInvoice.orderId }}</p>
+        <p><strong>Customer:</strong> {{ latestInvoice.customerName }}</p>
+        <p><strong>Phone:</strong> {{ customerPhone || 'Not provided' }}</p>
+        <p><strong>Date:</strong> {{ latestInvoice.createdAt }}</p>
+        <p><strong>Payment:</strong> {{ latestInvoice.paymentMethod }}</p>
+        <ul>
+          @for (item of latestInvoice.items; track item.name + item.qty) {
+            <li>{{ item.name }} x {{ item.qty }} = ₹{{ item.total }}</li>
+          }
+        </ul>
+        <p class="invoice-total"><strong>Total:</strong> ₹{{ latestInvoice.total }}</p>
+        <div class="checkout-actions">
+          <button mat-stroked-button color="accent" (click)="printInvoice()">Print Invoice</button>
+        </div>
+      </div>
+    }
   </div>
 
   <div class="milk-illustration">
