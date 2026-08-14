@@ -1,20 +1,59 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+
+interface Product {
+  name: string;
+  price: number;
+  unit: string;
+}
 
 @Component({
   selector: 'app-buffello',
   standalone: true,
-  imports: [MatButtonModule],
+  imports: [FormsModule, MatButtonModule],
   templateUrl: './buffello.html',
   styleUrl: './buffello.css',
 })
 export class Buffello {
-  buffelloCards = [
-    { id: 1, title: 'Murrah Buffalo', description: 'High milk yield and strong dairy quality.' },
-    { id: 2, title: 'Mehsana Buffalo', description: 'Known for milk production and adaptability.' },
-    { id: 3, title: 'Jaffrabadi Buffalo', description: 'Large-sized breed with excellent milk output.' },
-    { id: 4, title: 'Surti Buffalo', description: 'Balanced milk quality and disease resistance.' },
-    { id: 5, title: 'Nagpuri Buffalo', description: 'Adapted well to tropical conditions and grazing.' },
-    { id: 6, title: 'Bhadawari Buffalo', description: 'A hardy breed known for rich milk and resilience.' }
+  products: Product[] = [
+    { name: 'Milk', price: 45, unit: 'per liter' },
+    { name: 'Curd', price: 35, unit: 'per kg' },
+    { name: 'Ghee', price: 520, unit: 'per kg' }
   ];
+
+  selectedProduct = this.products[0];
+  quantity = 1;
+  cart: { name: string; qty: number; total: number }[] = [];
+
+  get currentItemTotal(): number {
+    return this.selectedProduct.price * this.quantity;
+  }
+
+  addToCart() {
+    const item = {
+      name: this.selectedProduct.name,
+      qty: this.quantity,
+      total: this.currentItemTotal,
+    };
+
+    this.cart.push(item);
+    this.quantity = 1;
+  }
+
+  get cartTotal(): number {
+    return this.cart.reduce((sum, item) => sum + item.total, 0);
+  }
+
+  checkout() {
+    if (this.cart.length === 0) {
+      console.log('Your cart is empty.');
+      return;
+    }
+
+    console.log('Checkout cart:', this.cart);
+    console.log('Total payable: ₹' + this.cartTotal);
+  }
 }
+
+

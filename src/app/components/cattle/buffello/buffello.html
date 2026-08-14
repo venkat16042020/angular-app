@@ -1,9 +1,58 @@
-<section class="buffello-grid">
-  @for (card of buffelloCards; track card.id) {
-    <article class="buffello-card">
-      <h2>{{ card.title }}</h2>
-      <p>{{ card.description }}</p>
-      <button mat-raised-button color="primary">View Details</button>
-    </article>
-  }
+<section class="shop-layout">
+  <div class="milk-order-card">
+    <div class="shop-badge">Andhra Pradesh • Farm Fresh</div>
+    <h2>Andhra Dairy Fresh</h2>
+    <p class="tagline">Pure milk, curd, and ghee from trusted village dairy farms.</p>
+
+    <div class="product-grid">
+      @for (product of products; track product.name) {
+        <button
+          type="button"
+          class="product-tile"
+          [class.selected]="selectedProduct.name === product.name"
+          (click)="selectedProduct = product"
+        >
+          <span class="product-icon">{{ product.name === 'Milk' ? '🥛' : product.name === 'Curd' ? '🥣' : '🧈' }}</span>
+          <span class="product-name">{{ product.name }}</span>
+          <span class="product-price">₹{{ product.price }} {{ product.unit }}</span>
+        </button>
+      }
+    </div>
+
+    <div class="form-row">
+      <label for="quantity">How many do you need?</label>
+      <input id="quantity" type="number" min="1" [(ngModel)]="quantity" />
+    </div>
+
+    <div class="price-box">
+      <p>Selected: {{ selectedProduct.name }}</p>
+      <p>Item total: ₹{{ currentItemTotal }}</p>
+    </div>
+
+    <div class="action-row">
+      <button mat-raised-button color="primary" (click)="addToCart()">Add to Cart</button>
+      <button mat-stroked-button color="accent" (click)="checkout()">Checkout Cart</button>
+    </div>
+
+    <div class="cart-box">
+      <h3>Cart</h3>
+      @if (cart.length === 0) {
+        <p>Your cart is empty.</p>
+      } @else {
+        <ul>
+          @for (item of cart; track item.name + item.qty) {
+            <li>{{ item.name }} x {{ item.qty }} = ₹{{ item.total }}</li>
+          }
+        </ul>
+        <p class="grand-total">Grand Total: ₹{{ cartTotal }}</p>
+      }
+    </div>
+  </div>
+
+  <div class="milk-illustration">
+    <img
+      src="https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=900&q=80"
+      alt="Fresh milk in a glass and dairy product scene"
+    />
+  </div>
 </section>
