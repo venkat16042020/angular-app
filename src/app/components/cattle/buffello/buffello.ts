@@ -55,6 +55,7 @@ export class Buffello implements OnInit {
   cart: CartItem[] = [];
   showCheckout = false;
   qrCodeText = '';
+  qrCodeImageUrl = '';
   orderHistory: OrderRecord[] = [];
   latestInvoice: Invoice | null = null;
   phonePeUpi = '9876543210@ybl';
@@ -93,6 +94,7 @@ export class Buffello implements OnInit {
 
     const customerDisplayName = this.customerName.trim() || 'Farm Fresh Customer';
     this.qrCodeText = `Customer: ${customerDisplayName}\nPhone: ${this.customerPhone.trim() || 'Not provided'}\nPhonePe UPI: ${this.phonePeUpi}\nAmount to pay: ₹${this.cartTotal}`;
+    this.qrCodeImageUrl = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(this.qrCodeText)}`;
     this.showCheckout = true;
   }
 

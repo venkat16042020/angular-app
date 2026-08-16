@@ -29,6 +29,7 @@ describe('Buffello', () => {
 
     expect(component.showCheckout).toBeTrue();
     expect(component.qrCodeText).toContain('PhonePe');
+    expect(component.qrCodeImageUrl).toContain('qrserver');
 
     component.confirmPhonePay();
 

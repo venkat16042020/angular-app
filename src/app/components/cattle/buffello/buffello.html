@@ -64,16 +64,14 @@
       <div class="checkout-panel">
         <h3>PhonePe QR Payment</h3>
         <div class="qr-box" aria-label="PhonePe QR code">
-          <div class="qr-pattern">
-            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-          </div>
+          @if (qrCodeImageUrl) {
+            <img
+              [src]="qrCodeImageUrl"
+              alt="PhonePe QR code"
+              width="180"
+              height="180"
+            />
+          }
         </div>
         <p class="qr-text">{{ qrCodeText }}</p>
         <div class="checkout-actions">

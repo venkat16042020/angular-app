@@ -162,6 +162,13 @@
   margin: 12px auto;
 }
 
+.qr-box img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
 .qr-pattern {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
